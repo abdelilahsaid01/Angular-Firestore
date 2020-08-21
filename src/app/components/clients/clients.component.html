@@ -1,0 +1,42 @@
+<div class="row m-3">
+    <div class="col-md-6">
+        <a [routerLink]="['/client/add']" routerLinkActive="router-link-active" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i>
+        New Client
+        </a>
+    </div>
+    <div class="col-md-6 text-right">
+        <h4>
+            <i class="fa fa-money" aria-hidden="true"></i> Total : {{total | currency}}
+        </h4>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">List Clients</h4>
+        <input #data type="text" (keyup)="search(data.value)" placeholder="search" class="form-control">
+        <table class="table table-striped">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Balance</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let client of searchClients">
+                    <td scope="row"><strong>{{client.firstName}} {{client.lastName}}</strong></td>
+                    <td>{{client.phone}}</td>
+                    <td>{{client.email}}</td>
+                    <td>{{client.balance | currency}}</td>
+                    <td class="text-right">
+                        <a [routerLink]="['/client', client.id]" routerLinkActive="router-link-active" class="btn btn-info mr-1"> <i class="fa fa-info-circle" aria-hidden="true"></i> </a>
+                        <a [routerLink]="['/client/edit', client.id]" class="btn btn-warning"> <i class="fa fa-pencil" aria-hidden="true"></i> </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

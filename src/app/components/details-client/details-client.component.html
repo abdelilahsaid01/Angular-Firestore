@@ -1,0 +1,42 @@
+<div class="row m-3">
+    <div class="col-md-6">
+        <a [routerLink]="['/']" routerLinkActive="router-link-active"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>Back to DashBoard</a>
+    </div>
+    <div class="col-md-6 text-right">
+        <button [routerLink]="['/client/edit',id]" class="btn btn-danger"><i class="fa fa-pencil-square"></i>Edit</button>
+        <button (click)="deleteClient()" class="btn btn-dark"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{client.firstName}} {{client.lastName}}</h4>
+                <div class="row">
+                    <div class="col-md-8">
+                        <ul class="list-group">
+                            <li class="list-group-item">id: <strong>{{id}}</strong></li>
+                            <li class="list-group-item">email: <strong>{{client.email}}</strong></li>
+                            <li class="list-group-item">Phone: <strong>{{client.phone}}</strong></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <span class="h5">Balance</span> <a class="btn btn-success" (click)="showBalance=!showBalance"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        <h4 [ngClass]="{'text-danger': showBalance, 'text-success':!showBalance}">{{client.balance | currency}}</h4>
+                        <div *ngIf="showBalance">
+                            <form (ngSubmit)="onSubmit()">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="balance" [(ngModel)]="client.balance">
+                                    <button type="submit" class="btn btn-warning">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

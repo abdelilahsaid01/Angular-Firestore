@@ -1,0 +1,29 @@
+<div class="row mt-3">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <img class="card-img-top" src="holder.js/100x180/" alt="">
+            <div class="card-body">
+                <h4 class="card-title text-center ">
+                    <span class="text-success"> <i class="fa fa-lock" aria-hidden="true">Register Panel</i></span>
+                </h4>
+                <form (ngSubmit)="onRegister()">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="string" class="form-control" name="email" id="email" placeholder="" [(ngModel)]="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="" [(ngModel)]="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Verify your Password</label>
+                        <input type="password" class="form-control" name="password2" id="password2" placeholder="" [(ngModel)]="password2">
+                    </div>
+                    <input value="Submit" type="submit" class="btn btn-success btn-block">
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
